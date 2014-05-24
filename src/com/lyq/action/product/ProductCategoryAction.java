@@ -1,4 +1,4 @@
-package com.lyq.product;
+package com.lyq.action.product;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
