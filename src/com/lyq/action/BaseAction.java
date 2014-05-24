@@ -42,5 +42,14 @@ public class BaseAction extends ActionSupport{
 	public String add() throws Exception {
 		return ADD;
 	}
+	
+	// getterºÍsettter·½·¨
+	public int getPageNo() {
+		return pageNo;
+	}
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
+	}
+
 
 }
