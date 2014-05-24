@@ -12,6 +12,9 @@ public class BaseAction extends ActionSupport{
 	public static final String LEFT = "left";
 	public static final String RIGHT = "right";
 	public static final String TOP = "top";
+	public static final String ADD = "add";
+	public static final String LIST = "list";
+	public static final String EDIT = "edit";
 	
 	// 处理方法
 	public String manager() throws Exception {
@@ -25,6 +28,9 @@ public class BaseAction extends ActionSupport{
 	}
 	public String right() throws Exception {
 		return RIGHT;
+	}
+	public String add() throws Exception {
+		return ADD;
 	}
 
 }
