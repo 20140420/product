@@ -4,10 +4,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.lyq.action.BaseAction;
-//import com.lyq.model.product.ProductCategory;
-//import com.lyq.model.PageModel;
-//import com.lyq.model.product.ProductCategory;
-//import com.opensymphony.xwork2.ModelDriven;
+import com.lyq.model.PageModel;
+import com.lyq.model.product.ProductCategory;
+import com.opensymphony.xwork2.ModelDriven;
 /**
  * 商品类别Action对象
  * @author Li Yongqiang
@@ -15,9 +14,19 @@ import com.lyq.action.BaseAction;
  */
 @Scope("prototype")
 @Controller("productCategoryAction")
-public class ProductCategoryAction extends BaseAction{
+public class ProductCategoryAction extends BaseAction implements ModelDriven<ProductCategory>{
 	private static final long serialVersionUID = 1L;
-
+	
+	private ProductCategory category = new ProductCategory();//一定要先初始化obj对象！
+	@Override
+	public ProductCategory getModel() {//此方法是Modeldriven接口的方法，要重写
+		return category;
+	}
+	// 父类别id
+	private Integer pid;
+	// 所有类别
+	private PageModel<ProductCategory> pageModel;
+	
 	@Override
 	public String add() throws Exception {
 
@@ -49,6 +58,25 @@ public class ProductCategoryAction extends BaseAction{
 	public String edit() throws Exception{
 
 		return EDIT;
+	}
+	//getter和setter方法
+	public Integer getPid() {
+		return pid;
+	}
+	public void setPid(Integer pid) {
+		this.pid = pid;
+	}
+	public PageModel<ProductCategory> getPageModel() {
+		return pageModel;
+	}
+	public void setPageModel(PageModel<ProductCategory> pageModel) {
+		this.pageModel = pageModel;
+	}
+	public ProductCategory getCategory() {
+		return category;
+	}
+	public void setCategory(ProductCategory category) {
+		this.category = category;
 	}
 
 }
