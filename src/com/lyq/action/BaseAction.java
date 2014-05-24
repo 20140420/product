@@ -1,5 +1,8 @@
 package com.lyq.action;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.lyq.dao.product.ProductCategoryDao;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 基本Action对象，其它Action的父类
@@ -7,7 +10,14 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class BaseAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
-
+	
+	protected int pageNo = 1;//当前页
+	protected int pageSize = 5;//每页显示多少条
+	
+	// 注入Dao
+	@Autowired
+	protected ProductCategoryDao categoryDao;
+	
 	public static final String MANAGER = "manager";
 	public static final String LEFT = "left";
 	public static final String RIGHT = "right";

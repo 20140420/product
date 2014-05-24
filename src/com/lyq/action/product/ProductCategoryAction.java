@@ -26,10 +26,16 @@ public class ProductCategoryAction extends BaseAction implements ModelDriven<Pro
 	private Integer pid;
 	// 所有类别
 	private PageModel<ProductCategory> pageModel;
+
+
 	
 	@Override
 	public String add() throws Exception {
-
+		if(pid != null && pid>0){//如果有父节点
+			ProductCategory parent = categoryDao.load(pid);//加载父类
+			//层次加1
+			category.setLevel(parent.getLevel()+1);
+		}
 		return INPUT;
 	}
 	/**
@@ -38,7 +44,10 @@ public class ProductCategoryAction extends BaseAction implements ModelDriven<Pro
 	 * @throws Exception
 	 */
 	public String save() throws Exception{
-
+		if(pid != null && pid > 0 ){//如果有父节点
+			category.setParent(categoryDao.load(pid));//设置父节点
+		}
+		categoryDao.saveOrUpdate(category);//添加类别信息
 		return list();//返回类别列表的查找方法
 	}
 	/**
@@ -47,7 +56,15 @@ public class ProductCategoryAction extends BaseAction implements ModelDriven<Pro
 	 * @throws Exception
 	 */
 	public String list() throws Exception{
-
+		Object[] params = null ;//定义对象数组初值为空
+		String where;//定义查询条件变量
+		if(pid != null && pid > 0 ){//如果有父节点
+			where = "where parent.id = ?";//执行查询条件
+			params = new Integer[]{pid};//设置参数值
+		}else{
+			where ="where parent is null";//查询根节点
+		}
+		pageModel = categoryDao.find(pageNo, pageSize, where, params);//执行封装的 搜索信息分页方法 查询方法
 		return LIST;//返回后台类别列表页面
 	}
 	/**
@@ -56,9 +73,23 @@ public class ProductCategoryAction extends BaseAction implements ModelDriven<Pro
 	 * @throws Exception
 	 */
 	public String edit() throws Exception{
-
+		if(category.getId() != null && category.getId() > 0){//判断是否获得ID参数
+			this.category = categoryDao.get(category.getId());//加载对象ID参数
+		}	
 		return EDIT;
 	}
+	/**
+	 * 删除类别
+	 * @return String
+	 * @throws Exception
+	 */
+	public String del() throws Exception{
+		if(category.getId() != null && category.getId() > 0){//判断是否获得ID参数
+			categoryDao.delete(category.getId());//执行删除操作
+		}
+		return list();//返回商品类别列表的查找方法
+	}
+	
 	//getter和setter方法
 	public Integer getPid() {
 		return pid;
