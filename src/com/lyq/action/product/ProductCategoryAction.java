@@ -35,7 +35,7 @@ public class ProductCategoryAction extends BaseAction implements ModelDriven<Pro
 			ProductCategory parent = categoryDao.load(pid);//加载父类
 			//层次加1
 			System.out.println("层次没加成功,但是能添加子类别");
-			//category.setLevel(parent.getLevel()+1);
+			category.setLevel(parent.getLevel()+1);
 		}
 		return INPUT;
 	}

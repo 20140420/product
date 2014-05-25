@@ -35,7 +35,7 @@
 			<s:else>
 				<s:a action="category_list" namespace="/admin/product">
 					<s:param name="pid" value="id"></s:param>
-					有<s:property value="children.size()"/>个子类别
+					有<s:property value="children.size"/>个子类别
 				</s:a>
 			</s:else>
 		</td>
