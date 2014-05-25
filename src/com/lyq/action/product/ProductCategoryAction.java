@@ -34,7 +34,7 @@ public class ProductCategoryAction extends BaseAction implements ModelDriven<Pro
 		if(pid != null && pid>0){//如果有父节点
 			ProductCategory parent = categoryDao.load(pid);//加载父类
 			//层次加1
-			System.out.println("层次没加成功");
+			System.out.println("层次没加成功,但是能添加子类别");
 			//category.setLevel(parent.getLevel()+1);
 		}
 		return INPUT;
@@ -46,8 +46,7 @@ public class ProductCategoryAction extends BaseAction implements ModelDriven<Pro
 	 */
 	public String save() throws Exception{
 		if(pid != null && pid > 0 ){//如果有父节点
-			System.out.println("父节点没设置成功");
-			//category.setParent(categoryDao.load(pid));//设置父节点
+			category.setParent(categoryDao.load(pid));//设置父节点
 		}
 		categoryDao.saveOrUpdate(category);//添加类别信息
 		return list();//返回类别列表的查找方法
