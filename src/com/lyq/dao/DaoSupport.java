@@ -71,6 +71,7 @@ public class DaoSupport<T> implements BaseDao<T>{
 	 */
 	@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)
 	public T load(Serializable entityId) {
+
 		return (T) getTemplate().load(this.entityClass, entityId);
 	}
 	/**
