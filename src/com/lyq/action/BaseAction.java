@@ -9,6 +9,8 @@ import org.apache.struts2.interceptor.ApplicationAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.lyq.dao.product.ProductCategoryDao;
+import com.lyq.dao.product.ProductDao;
+import com.lyq.dao.product.UploadFileDao;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 基本Action对象，其它Action的父类
@@ -26,6 +28,10 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	// 注入Dao
 	@Autowired
 	protected ProductCategoryDao categoryDao;
+	@Autowired
+	protected ProductDao productDao;
+	@Autowired
+	protected UploadFileDao uploadFileDao;
 
 	// Map类型的request
 	protected Map<String, Object> request;
@@ -41,6 +47,7 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	public static final String ADD = "add";
 	public static final String LIST = "list";
 	public static final String EDIT = "edit";
+	public static final String SELECT = "select";
 	
 	// 处理方法
 	public String manager() throws Exception {
@@ -57,6 +64,9 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	}
 	public String add() throws Exception {
 		return ADD;
+	}
+	public String select() throws Exception {
+		return SELECT;
 	}
 	
 	@Override
