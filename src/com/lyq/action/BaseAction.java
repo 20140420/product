@@ -19,6 +19,7 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	private static final long serialVersionUID = 1L;
 	
 	protected Integer id;
+	protected Integer[] ids;
 	protected int pageNo = 1;//当前页
 	protected int pageSize = 5;//每页显示多少条
 	
@@ -81,6 +82,12 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Integer[] getIds() {
+		return ids;
+	}
+	public void setIds(Integer[] ids) {
+		this.ids = ids;
 	}
 	public int getPageNo() {
 		return pageNo;

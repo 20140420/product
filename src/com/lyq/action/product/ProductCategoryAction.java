@@ -101,9 +101,13 @@ public class ProductCategoryAction extends BaseAction implements ModelDriven<Pro
 	public PageModel<ProductCategory> getPageModel() {
 		return pageModel;
 	}
+	/**
+	 * 
+	 * @param pageModel
 	public void setPageModel(PageModel<ProductCategory> pageModel) {
 		this.pageModel = pageModel;
 	}
+	 */
 	public ProductCategory getCategory() {
 		return category;
 	}
