@@ -59,7 +59,6 @@ public class ProductCategoryAction extends BaseAction implements ModelDriven<Pro
 		Object[] params = null ;//定义对象数组初值为空
 		String where;//定义查询条件变量
 		if(pid != null && pid > 0 ){//如果有父节点
-			System.out.println("第二层次加成功,但是不能显示接下去");
 			where = "where parent.id = ?";//执行查询条件
 			params = new Integer[]{pid};//设置参数值
 		}else{
