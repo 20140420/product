@@ -58,7 +58,7 @@ public class ProductCategoryAction extends BaseAction implements ModelDriven<Pro
 	public String list() throws Exception{
 		Object[] params = null ;//定义对象数组初值为空
 		String where;//定义查询条件变量
-		if(pid != null && pid > 0 ){//如果有父节点
+		if(pid != null && pid > 0 ){//如果有父节点  
 			where = "where parent.id = ?";//执行查询条件
 			params = new Integer[]{pid};//设置参数值
 		}else{
