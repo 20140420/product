@@ -74,7 +74,7 @@ public class ProductAction extends BaseAction implements ModelDriven<ProductInfo
 	public String findSellProduct() throws Exception{
 		Map<String, String> orderby = new HashMap<String, String>();//定义Map集合
 		orderby.put("sellCount", "desc");//为Map集合赋值
-		pageModel = productDao.find(1, 5, orderby );//执行查找方法
+		pageModel = productDao.find(pageNo, pageSize, orderby );//执行查找方法
 		image.put("url", "03.gif");
 		return "list";//返回商品列表页面
 	}
@@ -88,7 +88,7 @@ public class ProductAction extends BaseAction implements ModelDriven<ProductInfo
 		orderby.put("createTime", "desc");//为Map集合赋值
 		String where = "where commend = ?";//设置条件语句
 		Object[] queryParams = {true};//设置参数值
-		pageModel = productDao.find(where, queryParams, orderby, 1, 5);//执行查询方法
+		pageModel = productDao.find(where, queryParams, orderby, pageNo, pageSize);//执行查询方法
 		image.put("url", "06.gif");
 		return "list";//返回商品列表页面
 	}
@@ -100,7 +100,7 @@ public class ProductAction extends BaseAction implements ModelDriven<ProductInfo
 	public String findEnjoyProduct() throws Exception{
 		Map<String, String> orderby = new HashMap<String, String>();//定义Map集合
 		orderby.put("clickcount", "desc");//为Map集合赋值
-		pageModel = productDao.find(1, 5, orderby );//执行查找方法
+		pageModel = productDao.find(pageNo,pageSize, orderby );//执行查找方法
 		image.put("url", "07.gif");
 		return "list";//返回商品列表页面
 	}
@@ -210,6 +210,27 @@ public class ProductAction extends BaseAction implements ModelDriven<ProductInfo
 		return list();
 	}
 	/**
+	 * 验证商品信息是否有效
+	 */
+	public void validateSave() {
+		if(!StringUitl.validateString(product.getName())){
+			addFieldError("name", "商品名称不能为空！");
+		}
+		if(!StringUitl.validateFloat(product.getBaseprice())){
+			addFieldError("baseprice", "采购价格填写有误！");
+		}
+		if(!StringUitl.validateFloat(product.getMarketprice())){
+			addFieldError("marketprice", "市场价格填写有误！");
+		}
+		if(!StringUitl.validateFloat(product.getSellprice())){
+			addFieldError("sellprice", "销售价格填写有误！");
+		}
+		if(!StringUitl.validateString(product.getDescription())){
+			addFieldError("name", "商品说明不能为空！");
+		}
+		createCategoryTree();
+	}
+	/**
 	 * 查询商品
 	 * @return
 	 * @throws Exception
@@ -282,31 +303,8 @@ public class ProductAction extends BaseAction implements ModelDriven<ProductInfo
 			}
 		}
 	}
-	/**
-	 * 验证商品信息是否有效
-	 */
-	public void validateSave() {
-		if(!StringUitl.validateString(product.getName())){
-			addFieldError("name", "商品名称不能为空！");
-		}
-		if(!StringUitl.validateFloat(product.getBaseprice())){
-			addFieldError("baseprice", "采购价格填写有误！");
-		}
-		if(!StringUitl.validateFloat(product.getMarketprice())){
-			addFieldError("marketprice", "市场价格填写有误！");
-		}
-		if(!StringUitl.validateFloat(product.getSellprice())){
-			addFieldError("sellprice", "销售价格填写有误！");
-		}
-		if(!StringUitl.validateString(product.getDescription())){
-			addFieldError("name", "商品说明不能为空！");
-		}
-		createCategoryTree();
-	}
-
-
 	// 商品对象
-	private ProductInfo product = new ProductInfo();
+	private ProductInfo product = new ProductInfo();//一定要先初始化obj对象！
 	// 上传文件
 	private File file;
 	// 所有类别
@@ -316,15 +314,16 @@ public class ProductAction extends BaseAction implements ModelDriven<ProductInfo
 	
 	Map<String, String> image = new HashMap<String, String>();
 	
+	@Override
+	public ProductInfo getModel() {//此方法是Modeldriven接口的方法，要重写
+		return product;
+	}
+	
 	public Map<String, String> getImage() {
 		return image;
 	}
 	public void setImage(Map<String, String> image) {
 		this.image = image;
-	}
-	@Override
-	public ProductInfo getModel() {
-		return product;
 	}
 	public ProductInfo getProduct() {
 		return product;
