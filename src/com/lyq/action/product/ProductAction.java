@@ -226,7 +226,7 @@ public class ProductAction extends BaseAction implements ModelDriven<ProductInfo
 			addFieldError("sellprice", "销售价格填写有误！");
 		}
 		if(!StringUitl.validateString(product.getDescription())){
-			addFieldError("name", "商品说明不能为空！");
+			addFieldError("description", "商品说明不能为空！");
 		}
 		createCategoryTree();
 	}
