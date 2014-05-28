@@ -1,6 +1,8 @@
 package com.lyq.action;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 
 import org.apache.struts2.interceptor.RequestAware;
@@ -8,9 +10,13 @@ import org.apache.struts2.interceptor.SessionAware;
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.lyq.dao.order.OrderDao;
 import com.lyq.dao.product.ProductCategoryDao;
 import com.lyq.dao.product.ProductDao;
 import com.lyq.dao.product.UploadFileDao;
+import com.lyq.model.order.OrderItem;
+import com.lyq.model.user.Customer;
+import com.lyq.model.user.User;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 基本Action对象，其它Action的父类
@@ -32,6 +38,8 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	protected ProductDao productDao;
 	@Autowired
 	protected UploadFileDao uploadFileDao;
+	@Autowired
+	protected OrderDao orderDao;
 
 	// Map类型的request
 	protected Map<String, Object> request;
@@ -48,6 +56,7 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	public static final String LIST = "list";
 	public static final String EDIT = "edit";
 	public static final String SELECT = "select";
+	public static final String QUERY = "query";
 	
 	// 处理方法
 	public String manager() throws Exception {
@@ -68,6 +77,9 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	public String select() throws Exception {
 		return SELECT;
 	}
+	public String query() throws Exception{
+		return QUERY;
+	}
 	
 	@Override
 	public void setRequest(Map<String, Object> request) {
@@ -83,6 +95,33 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	public void setApplication(Map<String, Object> application) {
 		// 获取Map类型的application赋值
 		this.application = application;
+	}
+	
+	// 获取用户id
+	// 获取用户对象
+	public Customer getLoginCustomer(){
+		if(session.get("customer") != null){
+			return (Customer) session.get("customer");
+		}
+		return null;
+	}
+	// 获取管理员id
+	// 获取管理员对象
+	public User getLoginUser(){
+		if(session.get("admin") != null){
+			return (User) session.get("admin");
+		}
+		return null;
+	}
+	// 从session中取出购物车
+	@SuppressWarnings("unchecked")
+	protected Set<OrderItem> getCart(){
+		Object obj = session.get("cart");
+		if(obj == null){
+			return new HashSet<OrderItem>();
+		}else{
+			return (Set<OrderItem>) obj;
+		}
 	}
 	
 	
