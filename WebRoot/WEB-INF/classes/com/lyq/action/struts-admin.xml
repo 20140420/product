@@ -34,5 +34,14 @@
 
 		</action>	
     </package>
+    <!-- 订单管理 -->
+    <package name="shop.admin.order" namespace="/admin/product" extends="shop.admin">
+		<action name="order_*" method="{1}" class="orderAction">
+			<result name="list">/WEB-INF/pages/admin/order/order_list.jsp</result>
+			<result name="select">/WEB-INF/pages/admin/order/order_select.jsp</result>
+			<result name="query">/WEB-INF/pages/admin/order/order_query.jsp</result>
+			<result name="update">/WEB-INF/pages/admin/order/order_update_success.jsp</result>
 
+		</action>	
+    </package>
 </struts>
