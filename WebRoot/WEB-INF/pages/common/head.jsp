@@ -44,7 +44,7 @@ td {
 </div>
 <div id="menu">
 	<s:a action="index" namespace="/">
-<img src="${context_path}/css/images/index_12.gif"
+	<img src="${context_path}/css/images/index_12.gif"
 	width="92" height="33" /></s:a>
 	<s:a action="product_findNewProduct" namespace="/product"><img
 	src="${context_path}/css/images/index_13.gif" width="100" height="33" /></s:a>
