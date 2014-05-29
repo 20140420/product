@@ -14,6 +14,8 @@ import com.lyq.dao.order.OrderDao;
 import com.lyq.dao.product.ProductCategoryDao;
 import com.lyq.dao.product.ProductDao;
 import com.lyq.dao.product.UploadFileDao;
+import com.lyq.dao.user.CustomerDao;
+import com.lyq.dao.user.UserDao;
 import com.lyq.model.order.OrderItem;
 import com.lyq.model.user.Customer;
 import com.lyq.model.user.User;
@@ -40,6 +42,10 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	protected UploadFileDao uploadFileDao;
 	@Autowired
 	protected OrderDao orderDao;
+	@Autowired
+	protected UserDao userDao;
+	@Autowired
+	protected CustomerDao customerDao;
 
 	// Map类型的request
 	protected Map<String, Object> request;
@@ -57,6 +63,8 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	public static final String EDIT = "edit";
 	public static final String SELECT = "select";
 	public static final String QUERY = "query";
+	public static final String CUSTOMER_LOGIN = "customerLogin";
+	public static final String INDEX = "index";
 
 	
 	// 处理方法

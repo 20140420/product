@@ -10,7 +10,10 @@
             <result>/WEB-INF/pages/index.jsp</result>
         </action>
 	</package>
-
+	<!-- 消费者Action -->
+	<package name="shop.customer" extends="shop-default" namespace="/customer">
+		<action name="customer_*" method="{1}" class="customerAction"></action>
+	</package>
 	<!-- 订单Action -->
 	<package name="shop.order" extends="shop.front" namespace="/product">
 		<action name="order_*" class="orderAction" method="{1}">
