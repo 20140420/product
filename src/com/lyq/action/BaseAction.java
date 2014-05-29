@@ -57,7 +57,7 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	public static final String EDIT = "edit";
 	public static final String SELECT = "select";
 	public static final String QUERY = "query";
-	public static final String INDEX = "index";
+
 	
 	// 处理方法
 	public String manager() throws Exception {
@@ -81,12 +81,8 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	public String query() throws Exception{
 		return QUERY;
 	}
-	public String index() throws Exception {
-		return INDEX;
-	}
-	public String execute() throws Exception {
-		return SUCCESS;
-	}
+
+
 	
 	
 	@Override
