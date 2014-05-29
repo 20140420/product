@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
+	"http://struts.apache.org/dtds/struts-2.1.dtd" >
+<struts>
+
+	<package name="shop.front" extends="shop-default" namespace="/">
+		<!-- WEB-INF里面主页 -->
+		<action name="index" class="indexAction">
+            <result>/WEB-INF/pages/index.jsp</result>
+        </action>
+	</package>
+
+	<!-- 订单Action -->
+	<package name="shop.order" extends="shop.front" namespace="/product">
+		<action name="order_*" class="orderAction" method="{1}">
+			<result name="add">/WEB-INF/pages/order/order_add.jsp</result>
+			<result name="confirm">/WEB-INF/pages/order/order_confirm.jsp</result>
+			<result name="list">/WEB-INF/pages/order/order_list.jsp</result>
+			<result name="error">/WEB-INF/pages/order/order_error.jsp</result>
+			
+		</action>
+	</package>
+</struts>

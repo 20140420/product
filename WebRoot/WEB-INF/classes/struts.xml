@@ -5,5 +5,7 @@
 	<include file="com/lyq/action/struts-default.xml" />
 	<!-- 后台管理的Struts2配置文件 -->
 	<include file="com/lyq/action/struts-admin.xml" />
+	<!-- 前台台管理的Struts2配置文件 -->
+	<include file="com/lyq/action/struts-front.xml" />
 		
 </struts>    

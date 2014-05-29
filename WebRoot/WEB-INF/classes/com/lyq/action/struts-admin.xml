@@ -5,8 +5,9 @@
 <struts>
 	<!-- 后台管理 -->
 	<package name="shop.admin" namespace="/admin" extends="shop-default">
+	
 		<!-- class类是用BaseAction的处理方法 -->
-		<action name="admin_*" class="userAction" method="{1}">
+		<action name="admin_*" class="indexAction" method="{1}">
 			<result name="top">/WEB-INF/pages/admin/top.jsp</result>
             <result name="left">/WEB-INF/pages/admin/left.jsp</result>
             <result name="right">/WEB-INF/pages/admin/right.jsp</result>
