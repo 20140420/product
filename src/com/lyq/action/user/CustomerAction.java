@@ -15,8 +15,14 @@ import com.opensymphony.xwork2.ModelDriven;
 @Controller("customerAction")
 public class CustomerAction extends BaseAction implements ModelDriven<Customer>{
 	private static final long serialVersionUID = 1L;
+	/**
+	 * 继承BaseAction并重写，用户登入
+	 * @return
+	 * @throws Exception
+	 */
+	@Override
 	public String login() throws Exception{
-		return CUSTOMER_LOGIN;
+		return LOGIN;
 	}
 	/**
 	 * 用户注册
@@ -27,7 +33,7 @@ public class CustomerAction extends BaseAction implements ModelDriven<Customer>{
 		boolean unique = customerDao.isUnique(customer.getUsername());//判断用户名是否可用
 		if(unique){//如果用户名可用
 			customerDao.save(customer);//保存注册信息
-			return CUSTOMER_LOGIN;//返回会员登录页面
+			return LOGIN;//返回会员登录页面
 		}else{
 			throw new AppException("此用户名不可用");//否则返回页面错误信息
 		}
@@ -44,7 +50,7 @@ public class CustomerAction extends BaseAction implements ModelDriven<Customer>{
 			session.put("customer", loginCustomer);//将登录会员信息保存在Session中
 		}else{//验证失败
 			addFieldError("", "用户名或密码不正确！");//返回错误信息
-			return CUSTOMER_LOGIN;//返回会员登录页面
+			return LOGIN;//返回会员登录页面
 		}
 		return INDEX;//返回网站首页
 	}

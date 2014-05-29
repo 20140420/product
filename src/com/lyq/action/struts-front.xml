@@ -12,7 +12,10 @@
 	</package>
 	<!-- 消费者Action -->
 	<package name="shop.customer" extends="shop-default" namespace="/customer">
-		<action name="customer_*" method="{1}" class="customerAction"></action>
+		<action name="customer_*" method="{1}" class="customerAction">
+			<result name="login">/WEB-INF/pages/user/customer_login.jsp</result>
+			<result name="reg">/WEB-INF/pages/user/customer_reg.jsp</result>
+		</action>
 	</package>
 	<!-- 订单Action -->
 	<package name="shop.order" extends="shop.front" namespace="/product">

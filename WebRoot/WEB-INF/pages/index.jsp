@@ -23,5 +23,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
 	<%@include file="/WEB-INF/pages/common/head.jsp"%>
+	<div id="box">
+<div id="left">
+<div id="left_s01">
+	<s:a action="customer_login" namespace="/customer">
+		<img src="${context_path}/css/images/index_23.gif" class="imgx5" />
+	</s:a>
+	<s:a action="customer_reg" namespace="/customer">
+		<img src="${context_path}/css/images/index_26.gif" class="imgx5" />
+	</s:a>
+		<img src="${context_path}/css/images/index_27.gif" />
+</div>
+<div id="left_s02">
+	<img src="${context_path}/css/images/index_25.gif" width="489" height="245"	class="imgz5" />
+</div>
+<!-- 类别 -->
+
+</div>
+	</div>
   </body>
 </html>

@@ -63,8 +63,10 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	public static final String EDIT = "edit";
 	public static final String SELECT = "select";
 	public static final String QUERY = "query";
-	public static final String CUSTOMER_LOGIN = "customerLogin";
 	public static final String INDEX = "index";
+	public static final String LOGIN = "login";
+	public static final String REG = "reg";
+	public static final String LOGOUT = "logout";
 
 	
 	// 处理方法
@@ -88,6 +90,12 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	}
 	public String query() throws Exception{
 		return QUERY;
+	}
+	public String login() throws Exception{
+		return LOGIN;
+	}
+	public String reg() throws Exception{
+		return REG;
 	}
 
 
