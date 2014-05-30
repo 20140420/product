@@ -48,25 +48,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		       </td>
 		        <td style="padding-bottom: 3px;"> 
 					<div id="left122_y">
-						<!-- 二级 -->
-						<s:if test="!children.isEmpty">
-							<s:iterator value="children">
-								<div style="white-space:nowrap; width: 28%;float: left; margin-top: 5px; margin-bottom: 5px; margin-left: 26px;">
-									<b style="color: #990000;"><s:property value="name" escape="false"/></b>　
-									<!-- 三级 -->
-									<s:if test="!children.isEmpty">
-										<span>
+					<!-- 二级 -->
+					<s:if test="!children.isEmpty">
+						<s:iterator value="children">
+							<div style="white-space:nowrap; width: 28%;float: left; margin-top: 5px; margin-bottom: 5px; margin-left: 26px;">
+							<b style="color: #990000;"><s:property value="name" escape="false"/></b>　
+								<!-- 三级 -->
+								<s:if test="!children.isEmpty">
+									<span>
 										<s:iterator value="children">
 											<s:a action="product_getByCategoryId" namespace="/product">
 												<s:param name="category.id" value="id"></s:param>
 												<s:property value="name" escape="false"/>
 											</s:a>
 										</s:iterator>
-										</span>
-									</s:if>
-								</div>
-							</s:iterator>
-						</s:if>
+									</span>
+								</s:if>
+							</div>
+						</s:iterator>
+					</s:if>
 					</div>
 		       </td>
 		    </tr>
