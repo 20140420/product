@@ -24,6 +24,8 @@ public class AppException extends RuntimeException {
 		this.args = args;
 		this.defaultMessage = defaultMessage;
 	}
+	
+	@Override
 	public String getMessage() {
 		return message;
 	}

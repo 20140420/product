@@ -15,6 +15,10 @@ import com.opensymphony.xwork2.ModelDriven;
 @Controller("customerAction")
 public class CustomerAction extends BaseAction implements ModelDriven<Customer>{
 	private static final long serialVersionUID = 1L;
+	// 管理员
+	private Customer customer = new Customer();
+	// 确认密码
+	private String repassword;
 	/**
 	 * 继承BaseAction并重写，用户登入
 	 * @return
@@ -35,7 +39,7 @@ public class CustomerAction extends BaseAction implements ModelDriven<Customer>{
 			customerDao.save(customer);//保存注册信息
 			return LOGIN;//返回会员登录页面
 		}else{
-			throw new AppException("此用户名不可用");//否则返回页面错误信息
+			throw new AppException("user have bean此用户名不可用");//否则返回页面错误信息
 		}
 	}
 	/**
@@ -65,10 +69,6 @@ public class CustomerAction extends BaseAction implements ModelDriven<Customer>{
 		}
 		return INDEX;
 	}
-	// 管理员
-	private Customer customer = new Customer();
-	// 确认密码
-	private String repassword;
 	public Customer getCustomer() {
 		return customer;
 	}

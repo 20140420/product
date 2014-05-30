@@ -5,7 +5,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!-- 后台页面 -->
-<s:url action="user_manager" namespace="/admin/user" var="manager"></s:url>
+<s:url action="admin_manager" namespace="/admin" var="manager"></s:url>
+<!-- 管理员登入页面 -->
+<s:url action="user_login" namespace="/admin/user" var="user_login"></s:url>
 <!-- WEB-INF里面主页 -->
 <s:url action="index" namespace="/" var="index"></s:url>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -31,6 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<p>页面加载中......</p>
     <a href="${index}">WEB-INF里面主页</a><br>
     <a href="${manager}">无登入后台页面</a><br>
+    <a href="${user_login}">管理员登入</a><br>
 	</center>
   </body>
 </html>
