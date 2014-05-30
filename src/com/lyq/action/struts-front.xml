@@ -34,5 +34,13 @@
 
 		</action>
 	</package>
-	
+	<!-- 商品Action -->
+	<package name="shop.product" extends="shop-default" namespace="/product">
+		<action name="product_*" class="productAction" method="{1}">
+			<result name="list">/WEB-INF/pages/product/product_list.jsp</result>
+			<result name="select">/WEB-INF/pages/product/product_select.jsp</result>
+			<result name="clickList">/WEB-INF/pages/product/product_click_list.jsp</result>
+			<result name="findList">/WEB-INF/pages/product/product_find_list.jsp</result>
+		</action>
+	</package>
 </struts>
