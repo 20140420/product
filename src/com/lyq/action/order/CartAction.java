@@ -17,7 +17,11 @@ import com.lyq.model.product.ProductInfo;
 @Controller("cartAction")
 public class CartAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
-	// 向购物车中添加商品
+
+	/**
+	 * 向购物车中添加商品
+	 * @return 
+	 */
 	@Override
 	public String add() throws Exception {
 		if(productId != null && productId > 0){
