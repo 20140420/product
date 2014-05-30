@@ -27,4 +27,12 @@
 			
 		</action>
 	</package>
+	<!-- 购物车Action -->
+	<package name="shop.cart" extends="shop.front" namespace="/product">
+		<action name="cart_*" class="cartAction" method="{1}">
+			<result name="list">/WEB-INF/pages/cart/cart_list.jsp</result>
+
+		</action>
+	</package>
+	
 </struts>
