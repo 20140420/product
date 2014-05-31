@@ -5,13 +5,21 @@
 <struts>
 	<!-- 后台管理 -->
 	<package name="shop.admin" namespace="/admin" extends="shop-default">
-	
+		<!-- 配置拦截器 -->
+		<interceptors>
+			<!-- 验证用户登录的拦截器 -->
+			<interceptor name="loginInterceptor" class="com.lyq.action.interceptor.UserLoginInterceptor"/>
+			<interceptor-stack name="adminDefaultStack">
+				<interceptor-ref name="loginInterceptor"/>
+    			<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
 		<!-- class类是用BaseAction的处理方法 -->
 		<action name="admin_*" class="indexAction" method="{1}">
 			<result name="top">/WEB-INF/pages/admin/top.jsp</result>
             <result name="left">/WEB-INF/pages/admin/left.jsp</result>
             <result name="right">/WEB-INF/pages/admin/right.jsp</result>
-            
+            <interceptor-ref name="adminDefaultStack"/>
 		</action>
 	</package>
 	<package name="shop.admin.user" namespace="/admin/user" extends="shop-default">
@@ -24,7 +32,7 @@
 			<result name="list">/WEB-INF/pages/admin/product/category_list.jsp</result>
 			<result name="input">/WEB-INF/pages/admin/product/category_add.jsp</result>
 			<result name="edit">/WEB-INF/pages/admin/product/category_edit.jsp</result>
-			
+			<interceptor-ref name="adminDefaultStack"/>
 		</action>	
     </package>
     <!-- 商品管理 -->
@@ -33,7 +41,7 @@
 			<result name="list">/WEB-INF/pages/admin/product/product_list.jsp</result>
 			<result name="input">/WEB-INF/pages/admin/product/product_add.jsp</result>
 			<result name="edit">/WEB-INF/pages/admin/product/product_edit.jsp</result>
-
+			<interceptor-ref name="adminDefaultStack"/>
 		</action>	
     </package>
     <!-- 订单管理 -->
@@ -43,7 +51,7 @@
 			<result name="select">/WEB-INF/pages/admin/order/order_select.jsp</result>
 			<result name="query">/WEB-INF/pages/admin/order/order_query.jsp</result>
 			<result name="update">/WEB-INF/pages/admin/order/order_update_success.jsp</result>
-
+			<interceptor-ref name="adminDefaultStack"/>
 		</action>	
     </package>
 </struts>

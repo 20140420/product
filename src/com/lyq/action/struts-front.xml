@@ -5,6 +5,15 @@
 <struts>
 
 	<package name="shop.front" extends="shop-default" namespace="/" >
+		<!-- 配置拦截器 -->
+		<interceptors>
+			<!-- 验证用户登录的拦截器 -->
+			<interceptor name="loginInterceptor" class="com.lyq.action.interceptor.CustomerLoginInteceptor"/>
+			<interceptor-stack name="customerDefaultStack">
+				<interceptor-ref name="loginInterceptor"/>
+    			<interceptor-ref name="defaultStack"/><!--必需引用这个，否则点下一个子ACTION会报错-->
+			</interceptor-stack>
+		</interceptors>
 		<!-- WEB-INF里面主页 -->
 		<action name="index" class="indexAction" >
             <result>/WEB-INF/pages/index.jsp</result>
@@ -22,23 +31,25 @@
 			<result name="confirm">/WEB-INF/pages/order/order_confirm.jsp</result>
 			<result name="list">/WEB-INF/pages/order/order_list.jsp</result>
 			<result name="error">/WEB-INF/pages/order/order_error.jsp</result>
-			
+			<interceptor-ref name="customerDefaultStack"/>
 		</action>
 	</package>
 	<!-- 购物车Action -->
 	<package name="shop.cart" extends="shop.front" namespace="/product">
 		<action name="cart_*" class="cartAction" method="{1}">
 			<result name="list">/WEB-INF/pages/cart/cart_list.jsp</result>
-
+			<interceptor-ref name="customerDefaultStack"/>
 		</action>
 	</package>
 	<!-- 商品Action -->
 	<package name="shop.product" extends="shop-default" namespace="/product">
 		<action name="product_*" class="productAction" method="{1}">
+			<!-- 具体 -->
 			<result name="list">/WEB-INF/pages/product/product_list.jsp</result>
 			<result name="select">/WEB-INF/pages/product/product_select.jsp</result>
+			<!-- 首页右栏 -->
 			<result name="clickList">/WEB-INF/pages/product/product_click_list.jsp</result>
-			<result name="findList">/WEB-INF/pages/product/product_find_list.jsp</result>
+			<result name="findList">/WEB-INF/pages/product/product_find_list.jsp</result>			
 		</action>
 	</package>
 </struts>
