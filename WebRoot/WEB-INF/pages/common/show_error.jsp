@@ -8,7 +8,7 @@
 <title>错误</title>
 </head>
 <body>
-	访问页面错误！
+	自定义zidingyi访问页面错误！
 	<br>
 	<hr>
 	<p>
