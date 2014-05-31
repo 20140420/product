@@ -97,6 +97,13 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	public String reg() throws Exception{
 		return REG;
 	}
+	/**
+	 * ºÃ≥–÷ÿ–¥ActionSupport
+	 */
+	@Override
+	public String execute() throws Exception {
+		return SUCCESS;
+	}
 
 
 	
