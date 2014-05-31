@@ -10,7 +10,7 @@
 			<!-- 错误页面 -->
             <result name="error"></result>
             <!-- 程序主页面 -->
-            <result name="index" type="redirectAction">#</result>
+            <result name="index" type="redirectAction">index</result>
             <!-- 后台管理主页面 -->
             <result name="manager">/WEB-INF/pages/admin/main.jsp</result>
             <!--会员注册 -->
@@ -18,7 +18,7 @@
             <!--会员登录-->
 			<result name="customerLogin">/WEB-INF/pages/user/customer_login.jsp</result>
             <!--管理员登录-->
-            <result name="userLogin">#</result>
+            <result name="adminLogin">/WEB-INF/pages/admin/user/user_login.jsp</result>
         </global-results>
 		<global-exception-mappings>
 			<exception-mapping result="error" exception="com.lyq.util.AppException"></exception-mapping>

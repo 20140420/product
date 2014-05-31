@@ -4,9 +4,9 @@
 	"http://struts.apache.org/dtds/struts-2.1.dtd" >
 <struts>
 
-	<package name="shop.front" extends="shop-default" namespace="/">
+	<package name="shop.front" extends="shop-default" namespace="/" >
 		<!-- WEB-INF里面主页 -->
-		<action name="index" class="indexAction">
+		<action name="index" class="indexAction" >
             <result>/WEB-INF/pages/index.jsp</result>
         </action>
 	</package>

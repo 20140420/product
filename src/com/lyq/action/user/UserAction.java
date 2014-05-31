@@ -14,7 +14,13 @@ import com.opensymphony.xwork2.ModelDriven;
 @Controller("userAction")
 public class UserAction extends BaseAction implements ModelDriven<User>{
 	private static final long serialVersionUID = 1L;
-
+	/**
+	 * 管理员登入
+	 */
+	@Override
+	public String login() throws Exception{
+		return ADMIN_LOGIN;
+	}
 	/**
 	 * 登录 
 	 * @return

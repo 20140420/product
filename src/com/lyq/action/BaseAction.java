@@ -68,6 +68,7 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	public static final String REG = "reg";
 	public static final String LOGOUT = "logout";
 	public static final String CUSTOMER_LOGIN = "customerLogin";
+	public static final String ADMIN_LOGIN = "adminLogin";
 
 	
 	// 处理方法
