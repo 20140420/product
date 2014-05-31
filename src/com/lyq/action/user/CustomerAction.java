@@ -20,13 +20,13 @@ public class CustomerAction extends BaseAction implements ModelDriven<Customer>{
 	// 确认密码
 	private String repassword;
 	/**
-	 * 继承BaseAction并重写，用户登入
-	 * @return
+	 * 继承BaseAction并重写，顾客用户登入页面
+	 * @return "customerLogin"
 	 * @throws Exception
 	 */
 	@Override
 	public String login() throws Exception{
-		return LOGIN;
+		return CUSTOMER_LOGIN;
 	}
 	/**
 	 * 用户注册
@@ -37,7 +37,7 @@ public class CustomerAction extends BaseAction implements ModelDriven<Customer>{
 		boolean unique = customerDao.isUnique(customer.getUsername());//判断用户名是否可用
 		if(unique){//如果用户名可用
 			customerDao.save(customer);//保存注册信息
-			return LOGIN;//返回会员登录页面
+			return CUSTOMER_LOGIN;//返回会员登录页面
 		}else{
 			throw new AppException("user have bean此用户名不可用");//否则返回页面错误信息
 		}
@@ -53,8 +53,8 @@ public class CustomerAction extends BaseAction implements ModelDriven<Customer>{
 		if(loginCustomer != null){//如果通过验证
 			session.put("customer", loginCustomer);//将登录会员信息保存在Session中
 		}else{//验证失败
-			addFieldError("", "用户名或密码不正确！");//返回错误信息
-			return LOGIN;//返回会员登录页面
+			addFieldError("", "CustomerAction用户名或密码不正确！");//返回错误信息
+			return CUSTOMER_LOGIN;//返回会员登录页面
 		}
 		return INDEX;//返回网站首页
 	}

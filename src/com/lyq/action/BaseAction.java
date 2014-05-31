@@ -67,6 +67,7 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	public static final String LOGIN = "login";
 	public static final String REG = "reg";
 	public static final String LOGOUT = "logout";
+	public static final String CUSTOMER_LOGIN = "customerLogin";
 
 	
 	// 处理方法
@@ -96,6 +97,14 @@ public class BaseAction extends ActionSupport implements RequestAware,
 	}
 	public String reg() throws Exception{
 		return REG;
+	}
+	/**
+	 * 助于基于此类的扩展类可以直接INDEX跳到主页面
+	 * @return
+	 * @throws Exception
+	 */
+	public String index() throws Exception {
+		return INDEX;
 	}
 	/**
 	 * 继承重写ActionSupport
