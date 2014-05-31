@@ -177,7 +177,8 @@
 	background-color: #FFFFFF;
 }
 #rqpgb {
-	height: 133px;
+	/*height: 133px;*/
+	height: auto;
 	width: 194px;
 	border: 1px solid #999999;
 	padding: 5px;

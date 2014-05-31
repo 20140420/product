@@ -78,15 +78,57 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="right">
 			<!-- 商品排行 -->
 			<div id="rqpgb">
-
+			<table width="195" border="0" cellpadding="0"
+				cellspacing="0">
+				<tr>
+					<td width="195" height="31"><img
+						src="${context_path}/css/images/index_28.gif" width="195" height="29" /></td>
+				</tr>
+				<tr>
+					<td height="5"></td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<s:action name="product_findByClick" namespace="/product" executeResult="true"></s:action>
+					</td>
+				</tr>
+			</table>
 			</div>
 			<!-- 推荐商品 -->
 			<div id="xpss">
-
+			<table width="195" border="0" cellpadding="0"
+				cellspacing="0">
+				<tr>
+					<td width="195" height="31"><img
+						src="${context_path}/css/images/08.gif" width="195" height="29" /></td>
+				</tr>
+				<tr>
+					<td height="5"></td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<s:action name="product_findByCommend" namespace="/product" executeResult="true"></s:action>
+					</td>
+				</tr>
+			</table>
 			</div>
 			<!-- 热销商品 -->
 			<div id="rxsp">
-
+			<table width="195" border="0" cellpadding="0"
+				cellspacing="0">
+				<tr>
+					<td width="195" height="31"><img
+						src="${context_path}/css/images/index_47.gif" width="195" height="29" /></td>
+				</tr>
+				<tr>
+					<td height="5"></td>
+				</tr>
+				<tr>
+					<td valign="top">
+					<s:action name="product_findBySellCount" namespace="/product" executeResult="true"></s:action>
+					</td>
+				</tr>
+			</table>
 			</div>
 		<div id="sckf"></div>
 		</div>
