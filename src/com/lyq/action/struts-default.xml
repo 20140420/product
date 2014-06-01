@@ -10,7 +10,7 @@
 			<!-- 错误页面 -->
             <result name="error">/WEB-INF/pages/common/show_error.jsp</result>
             <!-- 程序主页面 -->
-            <result name="index" type="redirectAction">index</result>
+            <result name="index" type="redirectAction">indexweb</result>
             <!-- 后台管理主页面 -->
             <result name="manager">/WEB-INF/pages/admin/main.jsp</result>
             <!--会员注册 -->

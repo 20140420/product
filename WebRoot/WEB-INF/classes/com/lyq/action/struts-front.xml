@@ -4,7 +4,7 @@
 	"http://struts.apache.org/dtds/struts-2.1.dtd" >
 <struts>
 
-	<package name="shop.front" extends="shop-default" namespace="/" >
+	<package name="shop.front" extends="shop-default">
 		<!-- 配置拦截器 -->
 		<interceptors>
 			<!-- 验证用户登录的拦截器 -->
@@ -15,7 +15,7 @@
 			</interceptor-stack>
 		</interceptors>
 		<!-- WEB-INF里面主页 -->
-		<action name="index" class="indexAction" >
+		<action name="indexweb" class="indexAction" >
             <result>/WEB-INF/pages/index.jsp</result>
         </action>
 	</package>
