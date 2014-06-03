@@ -43,7 +43,7 @@ td {
 使用帮助</div>
 </div>
 <div id="menu">
-	<s:a action="index" namespace="/">
+	<s:a action="indexweb" namespace="/">
 	<img src="${context_path}/css/images/index_12.gif"
 	width="92" height="33" /></s:a>
 	<s:a action="product_findNewProduct" namespace="/product"><img

@@ -42,6 +42,7 @@ public class HibernateUtils {
 			session = (factory != null) ? factory.openSession() : null;
 			threadLocal.set(session); // 将session放入threadLocal中
 		}
+		System.out.print("这是HibernateUtils.java文件");
 		return session;
 	}
 	/**

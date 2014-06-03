@@ -208,6 +208,7 @@ public class DaoSupport<T> implements BaseDao<T>{
 	 * @return
 	 */
 	protected Session getSession(){
+		System.out.print("这是DaoSupport.java文件getSession!");
 		return (!this.template.isAllowCreate() ?
 		    SessionFactoryUtils.getSession(this.template.getSessionFactory(), false) :
 				SessionFactoryUtils.getSession(
