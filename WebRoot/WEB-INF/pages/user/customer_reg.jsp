@@ -15,7 +15,9 @@
 	<table width="80%" border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td colspan="2">
+			<span style="color: red;">
 			<s:fielderror></s:fielderror>
+			</span>
 			</td>
 		</tr>
 		<tr>

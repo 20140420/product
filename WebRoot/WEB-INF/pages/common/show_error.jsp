@@ -14,7 +14,7 @@
 	<p>
 	<s:property value="getText(exception.errorCode,exception.args)"/>
 	</p>
-	<s:a action="index">返回主页</s:a>
+	<s:a action="indexweb">返回主页</s:a>
     <s:debug></s:debug>
 </body>
 </html>

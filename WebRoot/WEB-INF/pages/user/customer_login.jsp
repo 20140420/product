@@ -11,7 +11,9 @@
 <div id="box">
 <div id="mid">
     <div id="denglu">
+    <span style="color: red;">
     <s:fielderror></s:fielderror>
+    </span>
       <s:form action="customer_logon" namespace="/customer" method="post">
       <table width="100%" height="94" border="0" cellpadding="0" cellspacing="0">
         <tr>
