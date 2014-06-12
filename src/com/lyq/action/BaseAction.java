@@ -123,6 +123,9 @@ public class BaseAction extends ActionSupport implements RequestAware,
 		// 获取Map类型的request赋值
 		this.request = request;
 	}
+	/**
+	 * 获取Map类型的session赋值
+	 */
 	@Override
 	public void setSession(Map<String, Object> session) {
 		// 获取Map类型的session赋值
