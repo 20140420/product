@@ -63,7 +63,7 @@
             <s:a action="cart_clear" namespace="/product">
 			<img src="${context_path}/css/images/zh03_07.gif" width="105" height="32" />
             </s:a>　　
-			<s:a action="index" namespace="/">
+			<s:a action="indexweb" namespace="/">
             <img src="${context_path}/css/images/zh03_09.gif" width="150" height="32" />　
             </s:a>　　
             <s:a action="order_add" namespace="/product">

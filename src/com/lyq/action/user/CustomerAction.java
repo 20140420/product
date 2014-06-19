@@ -19,6 +19,22 @@ public class CustomerAction extends BaseAction implements ModelDriven<Customer>{
 	private Customer customer = new Customer();
 	// 确认密码
 	private String repassword;
+	@Override
+	public Customer getModel() {
+		return customer;
+	}
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+	public String getRepassword() {
+		return repassword;
+	}
+	public void setRepassword(String repassword) {
+		this.repassword = repassword;
+	}
 	/**
 	 * 继承BaseAction并重写，顾客用户登入页面
 	 * @return "customerLogin"
@@ -27,20 +43,6 @@ public class CustomerAction extends BaseAction implements ModelDriven<Customer>{
 	@Override
 	public String login() throws Exception{
 		return CUSTOMER_LOGIN;
-	}
-	/**
-	 * 用户注册
-	 * @return
-	 * @throws Exception
-	 */
-	public String save() throws Exception{
-		boolean unique = customerDao.isUnique(customer.getUsername());//判断用户名是否可用
-		if(unique){//如果用户名可用
-			customerDao.save(customer);//保存注册信息
-			return CUSTOMER_LOGIN;//返回会员登录页面
-		}else{
-			throw new AppException("user have bean此用户名不可用");//否则返回页面错误信息
-		}
 	}
 	/**
 	 * 用户登录 
@@ -69,20 +71,18 @@ public class CustomerAction extends BaseAction implements ModelDriven<Customer>{
 		}
 		return INDEX;
 	}
-	public Customer getCustomer() {
-		return customer;
-	}
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-	public String getRepassword() {
-		return repassword;
-	}
-	public void setRepassword(String repassword) {
-		this.repassword = repassword;
-	}
-	@Override
-	public Customer getModel() {
-		return customer;
+	/**
+	 * 用户注册
+	 * @return
+	 * @throws Exception
+	 */
+	public String save() throws Exception{
+		boolean unique = customerDao.isUnique(customer.getUsername());//判断用户名是否可用
+		if(unique){//如果用户名可用
+			customerDao.save(customer);//保存注册信息
+			return CUSTOMER_LOGIN;//返回会员登录页面
+		}else{
+			throw new AppException("user have bean此用户名不可用");//否则返回页面错误信息
+		}
 	}
 }
